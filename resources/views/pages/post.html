@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PostHome.com - New Post</title>
+
+
+    <!-- Font Awesome !-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+    <!-- Font Source Sans Pro Google !-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- OWl CSS-->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- OWl CSS-->
+    <link rel="stylesheet" href="css/owl.theme.default.css">
+    <!-- Style CSS !-->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap CSS !-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+
+
+    <header>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">PostHome.com</a>
+                    <br>
+                    <span class="navbarAfter">sell with us!</span>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">HOME</a>
+                    </li>
+                    <li>
+                        <a href="#">ALL PROPERTIES</a>
+                    </li>
+                    <li>
+                        <a href="#">ABOUT US</a>
+                    </li>
+                    <li>
+                        <a href="#">SUPPORT</a>
+                    </li>
+                    <li>
+                        <button class="btn btn-danger navbar-btn" data-toggle="modal" data-target="#myModal">LOG IN</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+  
+
+    <div class="postIntroDiv">
+        <div class="container">
+            <h1 class="postIntro">Post your house</h1>
+            <span class="postAdress">
+                <p>home ></p>
+                <p>sell</p>
+            </span>
+        </div>
+    </div>
+
+    <div class="container postDiv">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group postFormGroup">
+                    <label for="usr">Title</label>
+                    <input type="text" class="form-control postInput" id="usr" placeholder="Northwest apartments">
+                </div>
+                <div class="form-group postFormGroup">
+                    <label for="usr">Location</label>
+                    <select class="form-control postInput" id="usr">
+                        <option value="" selected disabled>Please select</option>
+                        <option value="City1">City1</option>
+                        <option value="City2">City2</option>
+                    </select>
+                </div>
+                <div class="form-group postFormGroup">
+                    <label for="usr">Post type</label>
+                    <select class="form-control postInput" id="usr">
+                        <option value="" selected disabled>Please select</option>
+                        <option value="Sale">Sale</option>
+                        <option value="Rent">Rent</option>
+                    </select>
+                </div>
+                <div class="form-group postFormGroup">
+                    <label for="usr">Property type</label>
+                    <select class="form-control postInput" id="usr">
+                        <option value="" selected disabled>Please select</option>
+                        <option value="Flat">Flat</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Studio">Studio</option>
+                    </select>
+                </div>
+                <div class="form-group postFormGroup">
+                    <label for="usr">Price (monthly)</label>
+                    <button class="btn postButtonPrice">$</button>
+                    <input type="number" class="form-control postInput postInputPrice" id="usr" placeholder="300.000">
+                </div>
+                <div class="form-group postFormGroup">
+                    <label for="usr">Photos (up to 6)</label>
+                    <div class="input-group input-file ">
+                        <input type="file" multiple id="select" class="form-control myChooseFile valid" accept="image/x-png,image/gif,image/jpeg">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group postFormGroup">
+                    <label for="usr">Rooms</label>
+                    <select class="form-control postInput" id="usr">
+                        <option value="" selected disabled>Please select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group postFormGroup postSubForm">
+                    <div class="col-md-6 postSubInputs">
+                        <div class="form-group">
+                            <label for="usr">Bathrooms</label>
+                            <select class="form-control postInput" id="usr">
+                                <option value="" selected disabled>Please select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 postSubInputs">
+                        <div class="form-group">
+                            <label for="usr">Bedrooms</label>
+                            <select class="form-control postInput" id="usr">
+                                <option value="" selected disabled>Please select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group postFormGroup">
+                    <label for="usr">Area (sq.m)</label>
+                    <input type="number" class="form-control postInput" id="usr" placeholder="540">
+                </div>
+                <div class="form-group postFormGroup">
+                    <label for="usr">Desription (300)</label>
+                    <textarea type="text" cols="30" rows="10" class="form-control postTextArea postInput" id="usr" placeholder="Lorem ipsum dolor sit amet"></textarea>
+                </div>
+            </div>
+        </div>
+        <h1 class="PostRowIntro">Contacts</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group postFormGroup postCheckDiv">
+                    <label class="postCheck">
+                        <input id="checkPost" type="checkbox" class="postCheckInput" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                   <label for="checkPost" class="postCheckLabel">Allow to contact me via e-mail</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group postFormGroup">
+                    <label for="usr">Phone number</label>
+                    <input type="text" class="form-control postInput" id="usr" placeholder="212-217-7999">
+                </div>
+                <div class="form-group postFormGroup">
+                        <button type="submit" class="form-control postSubmit" id="usr">POST</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <footer>
+        <div class="container">
+            <div class="col-md-3 push-left">
+                <ul class="footerUL">
+                    <li class="footerOurC"> OUR CONTACTS</li>
+                    <li class="footerCountry"> Azerbaijan</li>
+                    <li class="footerAdress">
+                        <i class="footerMapIcon fa fa-map-marker"></i> 27th St New York, NY 10001</li>
+                    <li class="footerNumber">
+                        <i class="footerPhoneIcon fa fa-phone"></i> +1 212-217-7999</li>
+                </ul>
+            </div>
+            <div class="col-md-4 pull-right">
+                <ul class="footerUL">
+                    <li class="footerOurC">OUR NEWSLETTER</li>
+                    <li class="footerInputLi">
+                        <input class="footerInput" type="text" placeholder="Your email">
+                        <button class="footerButton">SUBSCRIBE</button>
+                    </li>
+                </ul>
+                <ul class="footerUl footerUlSocial">
+                    <li>
+                        <a href="#">
+                            <i class="footerSocialIcons fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="footerSocialIcons fa fa-youtube-play " aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="footerSocialIcons fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="footerSocialIcons fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h5 class="footerOutro">All rights reserved 2018</h5>
+    </footer>
+
+
+    <!-- Jquerys !-->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- Bootstrap JavaScript !-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+   
+</body>
+
+</html>

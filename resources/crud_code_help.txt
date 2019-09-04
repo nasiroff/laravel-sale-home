@@ -1,0 +1,282 @@
+---------------------------------------------------------------------------
+Relation: attach method
+---------------------------------------------------------------------------
+
+public function store(Request $request){
+
+$this->validate($request, [
+	'user_id' => 'required',
+	'city_id' => 'required',
+	'address' => 'required|max:250',
+	'title' => 'required|max:150',
+	'desc' => 'required|max:16777215',
+	'post_type' => 'required|max:15',
+	'room_count' => 'required|numeric',
+	'home_type' => 'required|max:50',
+	'area' => 'required',
+	'price' => 'required',
+	'status' => 'required|numeric',
+	'email_allowed' => 'required|numeric',
+]);
+
+$Users = Users::find($request->input('id'));
+
+$Posts = new Posts();
+$Posts->user_id       = $request->input('user_id');
+$Posts->city_id       = $request->input('city_id');
+$Posts->address       = $request->input('address');
+$Posts->title         = $request->input('title');
+$Posts->desc          = $request->input('desc');
+$Posts->post_type     = $request->input('post_type');
+$Posts->room_count    = $request->input('room_count');
+$Posts->home_type     = $request->input('home_type');
+$Posts->area          = $request->input('area');
+$Posts->price         = $request->input('price');
+$Posts->status        = $request->input('status');
+$Posts->email_allowed = $request->input('email_allowed');
+$Posts->save();
+$Users->Posts()->attach($Posts->id);
+
+return redirect()->route('posts.index')->with('message', 'Item created successfully.');
+}
+
+---------------------------------------------------------------------------
+Relation: attach method
+---------------------------------------------------------------------------
+
+public function store(Request $request){
+
+$this->validate($request, [
+	'first_name' => 'required|max:191',
+	'last_name' => 'required|max:191',
+	'email' => 'required|unique:users|max:150',
+	'password' => 'required|max:191',
+	'role_id' => 'required',
+]);
+
+$Posts = Posts::find($request->input('id'));
+
+$Users = new Users();
+$Users->first_name = $request->input('first_name');
+$Users->last_name  = $request->input('last_name');
+$Users->email      = $request->input('email');
+$Users->password   = $request->input('password');
+$Users->role_id    = $request->input('role_id');
+$Users->save();
+$Posts->Users()->attach($Users->id);
+
+return redirect()->route('users.index')->with('message', 'Item created successfully.');
+}
+
+---------------------------------------------------------------------------
+Relation: create method
+---------------------------------------------------------------------------
+
+public function store(Request $request){
+
+$this->validate($request, [
+	'image_path' => 'required|max:150',
+]);
+
+$Posts = Posts::find($request->input('id'));
+$PostImages = $Posts->PostImages()->create([
+	'image_path' => $request->input('image_path'),
+]);
+
+return redirect()->route('posts.index')->with('message', 'Item created successfully.');
+}
+
+---------------------------------------------------------------------------
+Relation: associate method
+---------------------------------------------------------------------------
+
+public function store(Request $request){
+
+$this->validate($request, [
+	'image_path' => 'required|max:150',
+]);
+
+$Posts = Posts::find($request->input('id'));
+
+$PostImages = new PostImages();
+$PostImages->image_path = $request->input('image_path');
+
+$PostImages->Posts()->associate($Posts);
+$PostImages->save();
+
+return redirect()->route('posts.index')->with('message', 'Item created successfully.');
+}
+
+// ------  Read one data ------ 
+$Posts = Posts::find(1);
+echo $Posts->id;
+foreach ($Posts->PostImages as $data) {
+   echo $data->image_path;
+}
+
+//------- Read all data -------- 
+$Posts = Posts::all();
+foreach ($Posts as $relate) {
+    echo $relate->id;
+    foreach($relate->PostImages as $data){
+       echo $data->image_path;
+    }
+}
+
+---------------------------------------------------------------------------
+Relation: attach method
+---------------------------------------------------------------------------
+
+public function store(Request $request){
+
+$this->validate($request, [
+	'name' => 'required|max:191',
+]);
+
+$Users = Users::find($request->input('id'));
+
+$Cities = new Cities();
+$Cities->name = $request->input('name');
+$Cities->save();
+$Users->Cities()->attach($Cities->id);
+
+return redirect()->route('cities.index')->with('message', 'Item created successfully.');
+}
+
+---------------------------------------------------------------------------
+Relation: attach method
+---------------------------------------------------------------------------
+
+public function store(Request $request){
+
+$this->validate($request, [
+	'first_name' => 'required|max:191',
+	'last_name' => 'required|max:191',
+	'email' => 'required|unique:users|max:150',
+	'password' => 'required|max:191',
+	'role_id' => 'required',
+]);
+
+$Cities = Cities::find($request->input('id'));
+
+$Users = new Users();
+$Users->first_name = $request->input('first_name');
+$Users->last_name  = $request->input('last_name');
+$Users->email      = $request->input('email');
+$Users->password   = $request->input('password');
+$Users->role_id    = $request->input('role_id');
+$Users->save();
+$Cities->Users()->attach($Users->id);
+
+return redirect()->route('users.index')->with('message', 'Item created successfully.');
+}
+
+---------------------------------------------------------------------------
+Relation: attach method
+---------------------------------------------------------------------------
+
+public function store(Request $request){
+
+$this->validate($request, [
+	'controller' => 'required|max:191',
+	'method' => 'required|max:191',
+]);
+
+$Roles = Roles::find($request->input('id'));
+
+$Actions = new Actions();
+$Actions->controller = $request->input('controller');
+$Actions->method     = $request->input('method');
+$Actions->save();
+$Roles->Actions()->attach($Actions->id);
+
+return redirect()->route('actions.index')->with('message', 'Item created successfully.');
+}
+
+---------------------------------------------------------------------------
+Relation: attach method
+---------------------------------------------------------------------------
+
+public function store(Request $request){
+
+$this->validate($request, [
+	'type' => 'required|max:191',
+]);
+
+$Actions = Actions::find($request->input('id'));
+
+$Roles = new Roles();
+$Roles->type = $request->input('type');
+$Roles->save();
+$Actions->Roles()->attach($Roles->id);
+
+return redirect()->route('roles.index')->with('message', 'Item created successfully.');
+}
+
+---------------------------------------------------------------------------
+Relation: create method
+---------------------------------------------------------------------------
+
+public function store(Request $request){
+
+$this->validate($request, [
+	'first_name' => 'required|max:191',
+	'last_name' => 'required|max:191',
+	'email' => 'required|unique:users|max:150',
+	'password' => 'required|max:191',
+]);
+
+$Roles = Roles::find($request->input('id'));
+$Users = $Roles->Users()->create([
+	'first_name' => $request->input('first_name'),
+	'last_name'  => $request->input('last_name'),
+	'email'      => $request->input('email'),
+	'password'   => $request->input('password'),
+]);
+
+return redirect()->route('roles.index')->with('message', 'Item created successfully.');
+}
+
+---------------------------------------------------------------------------
+Relation: associate method
+---------------------------------------------------------------------------
+
+public function store(Request $request){
+
+$this->validate($request, [
+	'first_name' => 'required|max:191',
+	'last_name' => 'required|max:191',
+	'email' => 'required|unique:users|max:150',
+	'password' => 'required|max:191',
+]);
+
+$Roles = Roles::find($request->input('id'));
+
+$Users = new Users();
+$Users->first_name = $request->input('first_name');
+$Users->last_name  = $request->input('last_name');
+$Users->email      = $request->input('email');
+$Users->password   = $request->input('password');
+
+$Users->Roles()->associate($Roles);
+$Users->save();
+
+return redirect()->route('roles.index')->with('message', 'Item created successfully.');
+}
+
+// ------  Read one data ------ 
+$Roles = Roles::find(1);
+echo $Roles->id;
+foreach ($Roles->Users as $data) {
+   echo $data->password;
+}
+
+//------- Read all data -------- 
+$Roles = Roles::all();
+foreach ($Roles as $relate) {
+    echo $relate->id;
+    foreach($relate->Users as $data){
+       echo $data->password;
+    }
+}
+
